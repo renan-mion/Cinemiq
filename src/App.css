@@ -14,3 +14,25 @@ body {
   width: 100%;
   flex-direction: column;
 }
+
+.filmes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5%;
+  margin: 0 20px 0 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.filme-card {
+  width: 15%;
+  height: 100%;
+}
+
+.filme-card img {
+  width: 100%;
+  height: 300px;
+}

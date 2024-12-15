@@ -30,8 +30,9 @@ function Home() {
         <div className="filmes">
             {filmes.map((filme) => {
                 return (
-                    <div key={filme} className="filme-card">
-                        <h1 className="titulo-filme">{filme.title}</h1>
+                    <div key={filme.id} className="filme-card">
+                        <p className="titulo-filme" alt='titulo'>{filme.title}</p>
+                        <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt="poster" />
                     </div>
                     
                 )

@@ -1,0 +1,26 @@
+header {
+    background-color: #282828 ;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0 20px 0;
+    padding: 0 20px 0 20px;
+}
+
+img {
+    width: 100px;
+    height: 40px;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 20px;
+}
+
+.links a {
+    color: #E16F7C;
+}

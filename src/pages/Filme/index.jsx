@@ -1,9 +1,11 @@
-
+import { useParams } from "react-router-dom";
 
 function Filme() {
+    const { id } = useParams();
+
     return(
        <div>
-            <h1>Bem vindo á pagina de detalhes do filme</h1>
+            <h1>Detalhes do filme { id }</h1>
        </div> 
     )
 }

@@ -1,0 +1,10 @@
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 14px;
+}
+
+.loading h2 {
+    color: #D2D7DF;
+}

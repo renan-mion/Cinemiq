@@ -5,7 +5,7 @@ import Logo from '../../assets/images/logo.png'
 function Header() {
     return (
         <header>
-            <img src={Logo} alt="logo"/>
+            <Link to='/'><img src={Logo} alt="logo"/></Link>
 
             <div className='links'>
                 <Link to='/'>Home</Link>

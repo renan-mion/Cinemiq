@@ -45,13 +45,11 @@ function Filme() {
                 }
             }).then((response) => {
                 const resultado = response.data.results;
-                console.log(resultado);
 
                 if (!resultado || resultado.length === 0) {
                     setErro(true);
                 } else {
                     setTrailer(resultado[0]);
-                    console.log(resultado[0]);
                 }
 
                 console.log(erro);

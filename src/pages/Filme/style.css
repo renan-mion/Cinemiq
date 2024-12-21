@@ -1,9 +1,8 @@
 .filme {
     max-width: 800px;
-    height: calc(100vh - 40px);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .info-filme {
@@ -12,6 +11,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 25px;
+    margin-bottom: 100px;
 }
 
 .info-filme h1 {
@@ -27,9 +28,20 @@
 
 .info-filme p {
     color: #D2D7DF;
-    font-size: 24px;
+    font-size: 22px;
     width: 100%;
     margin-top: 10px;
+}
+
+.link-trailer {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #E16F7C;
+}
+
+.link-trailer:hover {
+    color: #F8A0AC;
 }
 
 .generos-container {
@@ -46,6 +58,7 @@
     padding: 5px;
     border: none;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
 .genero-filme:hover {

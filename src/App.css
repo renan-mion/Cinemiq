@@ -24,6 +24,15 @@ h2 {
     color: #D2D7DF;
 }
 
+a {
+  text-decoration: none;
+  color: #E16F7C;
+}
+
+a:hover {
+  color: #F8A0AC;
+}
+
 .filmes {
   display: flex;
   flex-direction: row;

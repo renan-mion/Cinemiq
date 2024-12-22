@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import base_url from '../../services/base_url';
+import api from '../../services/api';
 import api_key from '../../services/api_key';
 import './style.css'
 
@@ -20,7 +20,7 @@ function Home() {
     useEffect(() => {
         async function loadFilmes() {
             try {
-                const response = await base_url.get('movie/now_playing', {
+                const response = await api.get('movie/now_playing', {
                     params: {
                         api_key: api_key,
                         language: 'pt-BR',
@@ -31,7 +31,7 @@ function Home() {
                 const resultados = response.data.results;
 
                 setFilmes(resultados);
-            } catch(error) {
+            } catch (error) {
                 console.log("Erro ao carregar filmes: ", error);
             }
         }
@@ -49,13 +49,24 @@ function Home() {
         )
     }
 
+    const filmeExiste = (id) => {
+        salvos.map((filme) => {
+            if (id === filme.id)
+                return true;
+            else
+                return false;
+        })
+    }
+
     const salvarFilme = (filme) => {
-        setSalvos(prevFilmes => [...prevFilmes, filme]);
+        console.log(salvos.indexOf(filme));
+        if (salvos.indexOf(filme) === -1)
+            setSalvos(prevFilmes => [...prevFilmes, filme]);
     }
 
     return (
         <div>
-            <h1 className="titulo-home">Filmes em alta</h1>
+            <h1 className="titulo">Filmes em alta</h1>
             <div className="filmes">
                 {filmes.map((filme) => {
                     return (

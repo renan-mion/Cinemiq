@@ -1,4 +1,4 @@
-.titulo-home {
+.titulo {
     text-align: center;
     font-size: 48px;
     margin-bottom: 2rem;
@@ -9,10 +9,6 @@
     justify-content: center;
     align-items: center;
     margin-top: 14px;
-}
-
-.link-filme {
-    margin: 5px 0 5px 0;
 }
 
 .btn-salvar {

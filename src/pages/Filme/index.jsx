@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import base_url from "../../services/base_url";
+import api from "../../services/api";
 import api_key from "../../services/api_key";
 import './style.css';
 
@@ -21,7 +21,7 @@ function Filme() {
 
     useEffect(() => {
         async function loadFilme() {
-            await base_url.get(`movie/${id}`, {
+            await api.get(`movie/${id}`, {
                 params: {
                     api_key: api_key,
                     language: 'pt-BR',
@@ -37,7 +37,7 @@ function Filme() {
         }
 
         async function loadTrailer() {
-            await base_url.get(`movie/${id}/videos`, {
+            await api.get(`movie/${id}/videos`, {
                 params: {
                     api_key: api_key,
                     language: 'pt-BR',

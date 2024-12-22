@@ -4,7 +4,7 @@ function MeusFilmes() {
     const salvos = JSON.parse(localStorage.getItem('Filmes salvos'));
 
     return (
-        <div>
+        <div className="container-pagina">
             <h1 className="titulo">Filmes Salvos</h1>
 
             <div className="filmes">{

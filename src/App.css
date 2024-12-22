@@ -33,6 +33,17 @@ a:hover {
   color: #F8A0AC;
 }
 
+.container-pagina {
+  width: 100%;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 14px;
+}
+
 .filmes {
   display: flex;
   flex-direction: row;

@@ -4,13 +4,6 @@
     margin-bottom: 2rem;
 }
 
-.loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 14px;
-}
-
 .btn-salvar {
     width: 50%;
     height: 1.5rem;

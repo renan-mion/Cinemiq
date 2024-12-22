@@ -49,15 +49,6 @@ function Home() {
         )
     }
 
-    const filmeExiste = (id) => {
-        salvos.map((filme) => {
-            if (id === filme.id)
-                return true;
-            else
-                return false;
-        })
-    }
-
     const salvarFilme = (filme) => {
         console.log(salvos.indexOf(filme));
         if (salvos.indexOf(filme) === -1)
@@ -65,14 +56,14 @@ function Home() {
     }
 
     return (
-        <div>
+        <div className="container-pagina">
             <h1 className="titulo">Filmes em alta</h1>
             <div className="filmes">
                 {filmes.map((filme) => {
                     return (
                         <div key={filme.id} className="filme-card">
                             <p className="titulo-filme" alt='titulo'>{filme.title}</p>
-                            <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt="poster" />
+                            <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt="poster" className="poster"/>
                             <Link to={'/filme/' + filme.id} className="link-filme">Acessar</Link>
                             <button className="btn-salvar" onClick={() => salvarFilme(filme)}>Salvar</button>
                         </div>

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import api_key from "../../services/api_key";
+import ImdbLogo from "../../assets/images/imdb-logo.png";
+import RTLogo from "../../assets/images/rotten-tomatoes-logo.png";
 import './style.css';
 
 function Filme() {
@@ -73,13 +75,28 @@ function Filme() {
         )
     }
 
+    const formatarTitulo = (titulo) => {
+        if (titulo)
+            return titulo.toLowerCase().replaceAll(' ', '_').replaceAll(':', '').replaceAll('-', '_');
+    }
+
     return (
         <div className="filme">
             <div className="info-filme">
                 <h1>{filme.title}</h1>
-                <img src={`https://image.tmdb.org/t/p/original/${filme.backdrop_path}`} alt="poster" />
+                <img src={`https://image.tmdb.org/t/p/original/${filme.backdrop_path}`} alt="poster" className="poster"/>
                 <p>{filme.overview}</p>
                 <p>Data de lançamento: {converterData(filme.release_date)}</p>
+                <p>Nota: {filme.vote_average}</p>
+                <div className="logo-links">
+                    <Link to={`https://www.imdb.com/pt/title/${filme.imdb_id}`} target="_blank" rel="noreferrer">
+                        <img src={ImdbLogo} alt="logo-IMDB" className="link-logo" />
+                    </Link>
+                    <Link to={`https://www.rottentomatoes.com/m/${formatarTitulo(filme.original_title)}`} target="_blank" rel="noreferrer">
+                        <img src={RTLogo} alt="logo-IMDB" className="link-logo" />
+                    </Link>
+                </div>
+
                 {!erro ? (
                     <Link className="link-trailer" to={'https://www.youtube.com/watch?v=' + trailer.key} target="_blank" rel="noreferrer">Trailer</Link>
                 ) : (

@@ -7,15 +7,6 @@ import './style.css'
 function Home() {
     const [filmes, setFilmes] = useState([]);
     const [loading, setLoading] = useState([]);
-    const [salvos, setSalvos] = useState(() => {
-        const filmesSalvos = JSON.parse(localStorage.getItem('Filmes salvos')) || [];
-        return filmesSalvos || [];
-    });
-
-    useEffect(() => {
-        localStorage.setItem('Filmes salvos', JSON.stringify(salvos));
-        console.log(JSON.parse(localStorage.getItem('Filmes salvos')));
-    }, [salvos]);
 
     useEffect(() => {
         async function loadFilmes() {
@@ -49,12 +40,6 @@ function Home() {
         )
     }
 
-    const salvarFilme = (filme) => {
-        console.log(salvos.indexOf(filme));
-        if (salvos.indexOf(filme) === -1)
-            setSalvos(prevFilmes => [...prevFilmes, filme]);
-    }
-
     return (
         <div className="container-pagina">
             <h1 className="titulo">Filmes em alta</h1>
@@ -63,9 +48,8 @@ function Home() {
                     return (
                         <div key={filme.id} className="filme-card">
                             <p className="titulo-filme" alt='titulo'>{filme.title}</p>
-                            <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt="poster"/>
+                            <Link to={'/filme/' + filme.id}><img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt="poster"/></Link>
                             <Link to={'/filme/' + filme.id} className="link-filme">Acessar</Link>
-                            <button className="btn-salvar" onClick={() => salvarFilme(filme)}>Salvar</button>
                         </div>
                     )
                 })}

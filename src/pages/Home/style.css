@@ -3,17 +3,3 @@
     font-size: 48px;
     margin-bottom: 2rem;
 }
-
-.btn-salvar {
-    width: 50%;
-    height: 1.5rem;
-    margin-top: 5px;
-    border: none;
-    border-radius: 2px;
-    background-color: #D2D7DF;
-}
-
-.btn-salvar:hover {
-    background-color: #E16F7C;
-    color: #D2D7DF;
-}

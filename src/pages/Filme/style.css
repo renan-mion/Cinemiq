@@ -74,9 +74,24 @@
     padding: 5px;
     border: none;
     border-radius: 5px;
-    margin-top: 10px;
+    margin: 10px 0 10px 0;
 }
 
 .genero-filme:hover {
     transform: scale(1.1);
+}
+
+.btn-salvar {
+    font-size: 1.2rem;
+    width: 100px;
+    height: 30px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 2px;
+    background-color: #D2D7DF;
+}
+
+.btn-salvar:hover {
+    background-color: #E16F7C;
+    color: #D2D7DF;
 }

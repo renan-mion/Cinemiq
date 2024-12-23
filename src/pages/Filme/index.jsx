@@ -13,8 +13,18 @@ function Filme() {
     const [loading, setLoadind] = useState({});
     const [trailer, setTrailer] = useState({});
     const [erro, setErro] = useState(false);
+    const [salvos, setSalvos] = useState(() => {
+        const filmesSalvos = JSON.parse(localStorage.getItem('Filmes salvos')) || [];
+        return filmesSalvos || [];
+    });
+
 
     const navigate = useNavigate();
+
+    useEffect(() => {
+        localStorage.setItem('Filmes salvos', JSON.stringify(salvos));
+        console.log(JSON.parse(localStorage.getItem('Filmes salvos')));
+    }, [salvos]);
 
     function converterData(data) {
         const datanova = new Date();
@@ -80,6 +90,15 @@ function Filme() {
             return titulo.toLowerCase().replaceAll(' ', '_').replaceAll(':', '').replaceAll('-', '_');
     }
 
+    const salvarFilme = (filme) => {
+        console.log(filme);
+        console.log(salvos);
+        console.log(salvos.indexOf(filme));
+        const filmeJaSalvo = salvos.some((item) => item.id === filme.id);
+        if (!filmeJaSalvo)
+            setSalvos(prevFilmes => [...prevFilmes, filme]);
+    }
+
     return (
         <div className="filme">
             <div className="info-filme">
@@ -112,6 +131,7 @@ function Filme() {
                         )
                     })}
                 </div>
+                <button className="btn-salvar" onClick={() => salvarFilme(filme)}>Salvar</button>
             </div>
 
         </div>

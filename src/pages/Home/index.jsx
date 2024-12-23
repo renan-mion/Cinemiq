@@ -63,7 +63,7 @@ function Home() {
                     return (
                         <div key={filme.id} className="filme-card">
                             <p className="titulo-filme" alt='titulo'>{filme.title}</p>
-                            <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt="poster" className="poster"/>
+                            <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt="poster"/>
                             <Link to={'/filme/' + filme.id} className="link-filme">Acessar</Link>
                             <button className="btn-salvar" onClick={() => salvarFilme(filme)}>Salvar</button>
                         </div>

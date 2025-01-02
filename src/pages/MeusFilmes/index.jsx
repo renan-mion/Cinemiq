@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 function MeusFilmes() {
-    const salvos = JSON.parse(localStorage.getItem('Filmes salvos')) || [];
+    const [salvos, setSalvos] = useState(JSON.parse(localStorage.getItem('Filmes salvos')) || []);
     const [erro, setErro] = useState(false);
 
     useEffect(() => {
@@ -17,7 +18,17 @@ function MeusFilmes() {
         }
 
         loadSalvos();
-    }, [])
+        localStorage.setItem('Filmes salvos', JSON.stringify(salvos));
+        console.log(JSON.parse(localStorage.getItem('Filmes salvos')));
+    }, [salvos])
+
+    const excluirFilme = (filme) => {
+        // const index = salvos.indexOf(filme);
+        // const novoSalvos = salvos.splice(index, 1);
+        const novoSalvos = salvos.filter(value => value !== filme);
+        setSalvos(novoSalvos);
+        console.log(novoSalvos);
+    }
 
     if (erro) {
         return (
@@ -38,6 +49,7 @@ function MeusFilmes() {
                             <p>{filme.title}</p>
                             <Link to={'/filme/' + filme.id}><img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt="poster" /></Link>
                             <Link to={'/filme/' + filme.id} className="link-filme">Acessar</Link>
+                            <button className="btn-excluir" onClick={() => {excluirFilme(filme)}}>Excluir</button>
                         </div>
                     )
                 })

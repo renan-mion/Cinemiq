@@ -1,0 +1,28 @@
+.div-sobre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 60%;
+}
+
+.div-sobre h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.div-sobre p {
+    font-size: 22px;
+    color: #D2D7DF;
+}
+
+.div-sobre img {
+    width: 64px;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.div-sobre img:hover {
+    transform: scale(1.2);
+}

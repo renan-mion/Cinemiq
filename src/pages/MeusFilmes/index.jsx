@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from 'react-toastify';
 import "./style.css";
 
 function MeusFilmes() {
@@ -27,7 +28,7 @@ function MeusFilmes() {
         // const novoSalvos = salvos.splice(index, 1);
         const novoSalvos = salvos.filter(value => value !== filme);
         setSalvos(novoSalvos);
-        console.log(novoSalvos);
+        toast.success("Filme excluído com sucesso");
     }
 
     if (erro) {

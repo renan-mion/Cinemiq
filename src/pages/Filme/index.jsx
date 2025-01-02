@@ -5,6 +5,7 @@ import api_key from "../../services/api_key";
 import ImdbLogo from "../../assets/images/imdb-logo.png";
 import RTLogo from "../../assets/images/rotten-tomatoes-logo.png";
 import './style.css';
+import { toast } from "react-toastify";
 
 function Filme() {
     const { id } = useParams();
@@ -95,8 +96,12 @@ function Filme() {
         console.log(salvos);
         console.log(salvos.indexOf(filme));
         const filmeJaSalvo = salvos.some((item) => item.id === filme.id);
-        if (!filmeJaSalvo)
+        if (!filmeJaSalvo) {
             setSalvos(prevFilmes => [...prevFilmes, filme]);
+            toast.success("Filme salvo com sucesso");
+        } else {
+            toast.warning("O filme já foi salvo");
+        }
     }
 
     return (
